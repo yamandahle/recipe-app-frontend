@@ -1,0 +1,47 @@
+body {
+  background-color: #fef0e6;
+
+  /*centerizing the whole concept */
+  .register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /*making the boxes in vertical way */
+  .form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 350px;
+  }
+
+  /*changing the style of the boxes and the corners */
+  input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+  }
+
+  input:focus {
+    border-color: #e07b39;
+  }
+
+  /*change the style of the button and the background*/
+  button {
+    background-color: #e07b39;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #c96a2e;
+  }
+}
