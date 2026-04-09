@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./register.css";
 import axios from "axios";
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
 
@@ -8,6 +9,8 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
@@ -18,6 +21,7 @@ const Register = () => {
         password: password,
       });
       setMessage(response.data.message);
+      setTimeout(() => navigate('/login'), 1500) /*navigate to login page if there is no error*/
     } catch (error) {
       setMessage("Something went wrong!");
     }
