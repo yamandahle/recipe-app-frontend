@@ -1,0 +1,48 @@
+/*added a style to the recipe card*/ 
+.recipe-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*added a style to the image of the recipe (the size changed and the shape of the image)*/
+.recipe-card img {
+    width: 50%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+/*added a style to the title*/
+.recipe-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #3d2b1f;
+    letter-spacing: 0.3px;
+    margin: 10px 0 5px 0;
+}
+
+/*added a style to the category filed*/
+.recipe-category {
+    display: inline-block;
+    background-color: #e07b39;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin: 8px 0;
+}
+
+/*added a style to the description */
+.recipe-description {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
