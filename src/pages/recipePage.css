@@ -1,0 +1,111 @@
+/*added a style to the details page*/
+.recipe-detail-page {
+    background-color: #fdf6ec;
+    min-height: 100vh;
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/*added a style to the image */
+.recipe-detail-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+/*added a style to the recipe title */
+.recipe-detail-title {
+    font-size: 28px;
+    font-weight: 500;
+    color: #3d2b1f;
+    margin-bottom: 8px;
+}
+
+/*added a style to the categoery*/
+.recipe-detail-category {
+    display: inline-block;
+    background-color: #e07b39;
+    color: white;
+    font-size: 13px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+/*added a style to th edescription*/
+.recipe-detail-description {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+/*added a style to the titles*/
+.recipe-section-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: #3d2b1f;
+    margin: 24px 0 10px 0;
+    border-bottom: 2px solid #e07b39;
+    padding-bottom: 6px;
+}
+
+/*added a style to the concept*/
+.recipe-section-text {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/*added a style to the ingredients section*/
+.recipe-ingredients {
+    list-style: disc;
+    padding-left: 20px;
+    color: #555;
+    font-size: 15px;
+    line-height: 2;
+}
+
+/*added a style to the steps section*/
+.recipe-steps {
+    list-style: none;
+    padding-left: 0;
+    counter-reset: step-counter;
+}
+
+.recipe-steps li {
+    counter-increment: step-counter;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.recipe-steps li::before {
+    content: counter(step-counter);
+    background-color: #e07b39;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/*added a style to the video section*/
+.recipe-video {
+    width: 80%;
+    height: 400px;
+    border-radius: 12px;
+    border: none;
+    margin-top: 10px;
+}
