@@ -4,11 +4,19 @@
     border-radius: 12px;
     padding: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/*added hover to the card*/
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /*added a style to the image of the recipe (the size changed and the shape of the image)*/
 .recipe-card img {
-    width: 50%;
+    width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 8px;
