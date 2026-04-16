@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import "./recipePage.css";
-import Comment from '../components/comment'
+import Comment from "../components/comment";
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -11,10 +11,15 @@ const RecipePage = () => {
   /*for the comment list */
   const [comments, setComments] = useState([]);
   /*for adding a new comment*/
-  const [newComment, setNewComment] = useState('');
-  const [message ,setMessage] = useState('');
+  const [newComment, setNewComment] = useState("");
+  const [message, setMessage] = useState("");
 
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
+
+  /*to update a new rate and the average rate */
+  const [newRate, setNewRate] = useState(0);
+  const [average, setAverage] = useState(0);
+  const [messageRate, setMessageRate] = useState("");
 
   useEffect(() => {
     /* fetch the recipe when page loads*/
@@ -22,13 +27,15 @@ const RecipePage = () => {
       .get(`http://127.0.0.1:8000/recipes/${id}`)
       .then((res) => setRecipe(res.data));
 
-
-
     /*fetch all the comments to the specific recipe*/
     axios
       .get(`http://127.0.0.1:8000/recipes/${id}/comments`)
       .then((res) => setComments(res.data.comments));
 
+    /*fetch the average rate*/
+    axios
+      .get(`http://127.0.0.1:8000/recipes/${id}/rating`)
+      .then((res) => setAverage(res.data.average_rating));
   }, [id]);
 
   /* show loading while recipe is being fetched*/
@@ -36,29 +43,47 @@ const RecipePage = () => {
     return <h2>Loading...</h2>;
   }
 
-     const handleAddComment = async () => {
+  const handleAddComment = async () => {
     try {
       /*save the details and send them to the server */
-      const response = await axios.post(`http://127.0.0.1:8000/recipes/${id}/comments`, {
-      text: newComment
-     }, { headers: { "token": token } })
+      const response = await axios.post(
+        `http://127.0.0.1:8000/recipes/${id}/comments`,
+        {
+          text: newComment,
+        },
+        { headers: { token: token } },
+      );
       setMessage(response.data.message);
       /*refresh the comments agian after adding a new comment */
-      axios.get(`http://127.0.0.1:8000/recipes/${id}/comments`)
-      .then(res => setComments(res.data.comments))
+      axios
+        .get(`http://127.0.0.1:8000/recipes/${id}/comments`)
+        .then((res) => setComments(res.data.comments));
     } catch (error) {
       setMessage("Something went wrong!");
     }
-  }; 
+  };
 
+  const handleRate = async (star) => {
+    try {
+      const response = await axios.post(
+        `http://127.0.0.1:8000/recipes/${id}/rate`,
+        { score: star },
+        { headers: { token: token } },
+      );
+      console.log("Rate response:", response.data); // ← check this
+      setNewRate(star);
+      setAverage(response.data.average_rating);
+    } catch (error) {
+      setMessageRate("Something went wrong!");
+    }
+  };
   /* extract YouTube video id from URL*/
   const videoId = recipe.video_url.split("v=")[1];
 
   /*return all the selected recipe details*/
   return (
     <div className="recipe-detail-page">
-
-    {/*show successfull message if the comment added */} 
+      {/*show successfull message if the comment added */}
       {message && <p>{message}</p>}
 
       <img
@@ -69,6 +94,27 @@ const RecipePage = () => {
 
       <h1 className="recipe-detail-title">{recipe.title}</h1>
       <span className="recipe-detail-category">{recipe.category}</span>
+
+      {/* display rating */}
+      <div className="rating-section">
+        <p className="average-rating">
+          {average > 0 ? `⭐ ${average} / 5` : "No ratings yet"}
+        </p>
+        {token && (
+          <div className="stars-container">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <span
+                key={star}
+                className={`star ${star <= newRate ? "selected" : ""}`}
+                onClick={() => handleRate(star)}
+              >
+                ★
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
       <p className="recipe-detail-description">{recipe.description}</p>
 
       {/* ingredients as bullet points */}
@@ -99,20 +145,19 @@ const RecipePage = () => {
         title="recipe video"
       />
 
-     {/*for displaying the comments and adding a new comment*/}
-        <div className="comments-table">
-         {comments.map((comment) => (
-         <Comment 
-           key= {comment.user_id}
-           author= {comment.author}
-           text ={comment.text}
-           time ={comment.created_at}
-
-        />
+      {/*for displaying the comments and adding a new comment*/}
+      <div className="comments-table">
+        {comments.map((comment) => (
+          <Comment
+            key={comment.user_id}
+            author={comment.author}
+            text={comment.text}
+            time={comment.created_at}
+          />
         ))}
-        </div>
+      </div>
 
-        <div className="add-comment">
+      <div className="add-comment">
         <label>Add new comment :</label>
         <input
           type="text"
@@ -120,13 +165,14 @@ const RecipePage = () => {
           onChange={(e) => setNewComment(e.target.value)}
         />
 
-         <button
+        <button
           type="button"
           className="btn btn-light"
           onClick={handleAddComment}
-        >Post</button>
-        </div>
-
+        >
+          Post
+        </button>
+      </div>
     </div>
   );
 };

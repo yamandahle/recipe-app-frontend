@@ -111,7 +111,7 @@
 }
 
 
-/*added a beautful style to add the comment box */
+/*added a beautiful style to add the comment box */
 .add-comment {
     display: flex;
     gap: 10px;
@@ -144,4 +144,45 @@
 
 .add-comment button:hover {
     background-color: #c9692a;
+}
+
+/*a style to the rating */
+.rating-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 12px 0 20px 0;
+    flex-wrap: wrap;
+}
+
+.average-rating {
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.stars-container {
+    display: flex;
+    gap: 4px;
+}
+
+.star {
+    font-size: 28px;
+    cursor: pointer;
+    color: #ddd;
+    transition: color 0.15s, transform 0.1s;
+}
+
+.star:hover {
+    color: #e07b39;
+    transform: scale(1.2);
+}
+
+.star.selected {
+    color: #e07b39;
+}
+
+.rate-label {
+    font-size: 13px;
+    color: #888;
 }
