@@ -19,7 +19,14 @@ const RecipePage = () => {
   /*to update a new rate and the average rate */
   const [newRate, setNewRate] = useState(0);
   const [average, setAverage] = useState(0);
-  const [messageRate, setMessageRate] = useState("");
+
+  /*decode the token to get current user id*/
+  const getCurrentUserId = () => {
+    if (!token) return null;
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    return payload.user_id;
+  };
+  const currentUserId = getCurrentUserId();
 
   useEffect(() => {
     /* fetch the recipe when page loads*/
@@ -74,9 +81,24 @@ const RecipePage = () => {
       setNewRate(star);
       setAverage(response.data.average_rating);
     } catch (error) {
-      setMessageRate("Something went wrong!");
+      setMessage("Something went wrong!");
     }
   };
+
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/comments/${commentId}`, {
+        headers: { token: token },
+      });
+      // refresh comments
+      axios
+        .get(`http://127.0.0.1:8000/recipes/${id}/comments`)
+        .then((res) => setComments(res.data.comments));
+    } catch (error) {
+      setMessage("Could not delete comment!");
+    }
+  };
+
   /* extract YouTube video id from URL*/
   const videoId = recipe.video_url.split("v=")[1];
 
@@ -149,10 +171,13 @@ const RecipePage = () => {
       <div className="comments-table">
         {comments.map((comment) => (
           <Comment
-            key={comment.user_id}
+            key={comment.id}
             author={comment.author}
             text={comment.text}
             time={comment.created_at}
+            onDelete={handleDeleteComment}
+            isOwner={comment.user_id === currentUserId}
+            id={comment.id}
           />
         ))}
       </div>
