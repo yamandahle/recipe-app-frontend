@@ -1,36 +1,35 @@
 import { useState } from "react";
 import "./login.css";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom'
-
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-
-
-   const handleLogin = async () => {
+  const handleLogin = async () => {
     try {
-      /*save the details and send them to the server */
       const response = await axios.post("http://127.0.0.1:8000/login", {
         email: email,
         password: password,
       });
-      setMessage(response.data.message);
-      localStorage.setItem('token', response.data.token) /* save the token in local storage*/ 
-      navigate('/') /*navigate to home page if there is no error*/
+
+      // check if token exists in response
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/");
+      } else {
+        setMessage("Wrong email or password!");
+      }
     } catch (error) {
       setMessage("Something went wrong!");
     }
-  }; 
+  };
 
-
-    return (
+  return (
     <div className="register-container">
       <div className="form-box">
         {message && <p>{message}</p>}
@@ -43,7 +42,6 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-
         <label> Password:</label>
         <input
           type="password"
@@ -51,11 +49,7 @@ const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button
-          type="button"
-          className="btn btn-light"
-          onClick={handleLogin}
-        >
+        <button type="button" className="btn btn-light" onClick={handleLogin}>
           Login
         </button>
       </div>
@@ -63,8 +57,4 @@ const Login = () => {
   );
 };
 
-export default Login ;
-
-
-
-
+export default Login;
