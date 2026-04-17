@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import "./recipePage.css";
 import Comment from "../components/comment";
+import { useNavigate } from "react-router-dom";
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -19,6 +20,7 @@ const RecipePage = () => {
   /*to update a new rate and the average rate */
   const [newRate, setNewRate] = useState(0);
   const [average, setAverage] = useState(0);
+  const navigate = useNavigate();
 
   /*decode the token to get current user id*/
   const getCurrentUserId = () => {
@@ -50,6 +52,7 @@ const RecipePage = () => {
     return <h2>Loading...</h2>;
   }
 
+  //handle add comment
   const handleAddComment = async () => {
     try {
       /*save the details and send them to the server */
@@ -70,6 +73,7 @@ const RecipePage = () => {
     }
   };
 
+  //handle rating
   const handleRate = async (star) => {
     try {
       const response = await axios.post(
@@ -85,6 +89,7 @@ const RecipePage = () => {
     }
   };
 
+  // handle delete comment
   const handleDeleteComment = async (commentId) => {
     try {
       await axios.delete(`http://127.0.0.1:8000/comments/${commentId}`, {
@@ -96,6 +101,18 @@ const RecipePage = () => {
         .then((res) => setComments(res.data.comments));
     } catch (error) {
       setMessage("Could not delete comment!");
+    }
+  };
+
+  //handle delete recipe
+  const handleDeleteRecipe = async () => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/recipes/${id}`, {
+        headers: { token: token },
+      });
+      navigate("/");
+    } catch (error) {
+      setMessage("Could not delete recipe!");
     }
   };
 
@@ -198,6 +215,14 @@ const RecipePage = () => {
           Post
         </button>
       </div>
+
+      {/*delete recipe button */}
+      {currentUserId === recipe.user_id && (
+        <button className="delete-recipe-btn" onClick={handleDeleteRecipe}>
+          Delete Recipe
+        </button>
+      )}
+
     </div>
   );
 };
