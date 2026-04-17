@@ -1,0 +1,205 @@
+
+
+/*added a style for the whole page (spaces , colors ...)*/
+.new-recipe {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.new-recipe h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #3d2b1f;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8B4513;
+    margin-bottom: 6px;
+    letter-spacing: 0.3px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #e07b39;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #e07b39;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #c9692a;
+}
+
+.success-message {
+    background-color: #f0faf4;
+    color: #3B6D11;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}.new-recipe {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.new-recipe h2 {
+    font-size: 24px;
+    font-weight: 500;
+    color: #3d2b1f;
+    margin-bottom: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #8B4513;
+    margin-bottom: 6px;
+}
+
+.hint {
+    font-weight: 400;
+    color: #aaa;
+    font-size: 12px;
+    margin-left: 6px;
+}
+
+.form-group input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #e07b39;
+}
+
+/* ingredients — taller box */
+.ingredients-input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.8;
+}
+
+.ingredients-input:focus {
+    border-color: #e07b39;
+}
+
+/* steps — taller box with more space */
+.steps-input {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    min-height: 140px;
+    resize: vertical;
+    line-height: 2;
+}
+
+.steps-input:focus {
+    border-color: #e07b39;
+}
+
+/* category — small dropdown */
+.category-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    width: 180px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.category-select:focus {
+    border-color: #e07b39;
+}
+
+.form-group-small {
+    max-width: 200px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #e07b39;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #c9692a;
+}
+
+.success-message {
+    background-color: #f0faf4;
+    color: #3B6D11;
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
