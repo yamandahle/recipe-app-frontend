@@ -4,10 +4,13 @@ import Register from "./pages/register";
 import Login from "./pages/login";
 import Home from "./pages/home";
 import RecipePage from "./pages/recipePage";
+import Navbar from "./components/navbar";
+
 
 function App() {
   return (
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/recipes/:id" element={<RecipePage />} />
