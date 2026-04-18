@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# 🍳 Recipe App — Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React web application for a recipe sharing community platform.
 
-## Available Scripts
+## What is this project?
 
-In the project directory, you can run:
+A food community website where anyone can browse recipes, and registered users can share their own recipes, save favorites, rate dishes, and leave comments — like Instagram but for food!
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React** — frontend framework
+- **JavaScript** — programming language
+- **HTML** — page structure
+- **CSS** — styling and design
+- **Axios** — HTTP requests to the backend API
+- **React Router DOM** — page navigation between routes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Browse all recipes in a beautiful grid
+- Search recipes by name or category
+- View full recipe details with ingredients, steps and YouTube video
+- Register and login with JWT authentication
+- Add your own recipes with photo upload
+- Save/unsave favorite recipes with heart button
+- Rate recipes with star rating (1-5 stars)
+- Add and delete comments
+- Profile page with your recipes
+- Favorites page with saved recipes
+- Responsive navbar with login/logout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Pages
 
-### `npm run build`
+| Page | Path | Description |
+|------|------|-------------|
+| Home | / | Browse all recipes with search |
+| Recipe Detail | /recipes/:id | Full recipe page |
+| Add Recipe | /add-recipe | Add a new recipe |
+| Profile | /profile | Your recipes |
+| Favorites | /favorites | Saved recipes |
+| Login | /login | Login page |
+| Register | /register | Register page |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## How to Run Locally
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**1. Clone the repository:**
+```bash
+git clone https://github.com/yamandahle/recipe-app-frontend.git
+cd recipe-app-frontend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**2. Install dependencies:**
+```bash
+npm install
+```
 
-### `npm run eject`
+**3. Make sure the backend is running on:**
+```
+http://127.0.0.1:8000
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**4. Start the app:**
+```bash
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**5. Open in browser:**
+```
+http://localhost:3000
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Project Structure
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+src/
+├── pages/
+│   ├── Home.js          → Recipe grid with search
+│   ├── RecipePage.js    → Recipe detail page
+│   ├── AddRecipe.js     → Add recipe form
+│   ├── Profile.js       → User profile page
+│   ├── Favorite.js      → Saved recipes page
+│   ├── Login.js         → Login page
+│   └── Register.js      → Register page
+├── components/
+│   ├── Navbar.js        → Navigation bar
+│   ├── RecipeCard.js    → Recipe card component
+│   └── Comment.js       → Comment component
+└── App.js               → Routes configuration
+```
