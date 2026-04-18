@@ -1,0 +1,30 @@
+.favorites-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fdf6ec;
+    min-height: 100vh;
+}
+
+.favorites-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #3d2b1f;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e07b39;
+}
+
+.empty-favorites {
+    text-align: center;
+    padding: 60px 20px;
+    color: #888;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}

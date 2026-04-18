@@ -50,3 +50,23 @@
     background-color: #e07b39;
     color: white;
 }
+
+
+/*added a style the profile button */
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #e07b39;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.2s;
+}
+
+.profile-avatar:hover {
+    background-color: #c9692a;
+}
