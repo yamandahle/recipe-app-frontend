@@ -18,3 +18,36 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
+
+/*stylr the search box beautifully*/
+
+.search-container {
+    margin-bottom: 24px;
+    position: relative;
+}
+
+.search-input {
+    width: 95%;
+    padding: 12px 20px 12px 45px;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 15px;
+    outline: none;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+    border-color: #e07b39;
+    box-shadow: 0 2px 12px rgba(224, 123, 57, 0.15);
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+}
