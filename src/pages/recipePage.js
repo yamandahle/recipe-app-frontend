@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
-import "./recipePage.css";
+import "./RecipePage.css";
 import Comment from "../components/comment";
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,9 @@ const RecipePage = () => {
   /*to update a new rate and the average rate */
   const [newRate, setNewRate] = useState(0);
   const [average, setAverage] = useState(0);
+
   const navigate = useNavigate();
+
 
   /*decode the token to get current user id*/
   const getCurrentUserId = () => {
@@ -115,6 +117,8 @@ const RecipePage = () => {
       setMessage("Could not delete recipe!");
     }
   };
+
+
 
   /* extract YouTube video id from URL*/
   const videoId = recipe.video_url.split("v=")[1];

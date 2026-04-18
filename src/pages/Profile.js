@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {  useEffect } from 'react';
 import axios from 'axios';
-import RecipeCard from "../components/recipe-card";
+import RecipeCard from "../components/RecipeCard";
 import "./Profile.css"
 
 const Profile = () => {

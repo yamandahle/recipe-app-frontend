@@ -1,4 +1,4 @@
-import './comment.css'
+import './Comment.css'
 
 const Comment = ({ id, author, text, time, onDelete, isOwner }) => {
     return (

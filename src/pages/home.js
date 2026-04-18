@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import RecipeCard from "../components/recipe-card";
-import "./home.css";
+import RecipeCard from "../components/RecipeCard";
+import "./Home.css";
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -25,7 +25,7 @@ const Home = () => {
     <div className="home-container">
       <h1 className="home-title">🍳 Recipes</h1>
 
-      
+
       {/*show the search box*/}
       <div className="search-container">
         <span className="search-icon">🔍</span>
