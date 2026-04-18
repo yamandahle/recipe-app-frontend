@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
 import "./RecipePage.css";
-import Comment from "../components/comment";
+import Comment from "../components/Comment.js";
 import { useNavigate } from "react-router-dom";
 
 const RecipePage = () => {

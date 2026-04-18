@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Register from "./pages/register";
-import Login from "./pages/login";
-import Home from "./pages/home";
-import RecipePage from "./pages/recipePage";
-import Navbar from "./components/navbar";
-import AddRecipe from "./pages/addRecipe";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
+import RecipePage from "./pages/RecipePage";
+import Navbar from "./components/Navbar";
+import AddRecipe from "./pages/AddRecipe";
 import Profile from "./pages/Profile";
 import Favorites from './pages/Favorite'
 
