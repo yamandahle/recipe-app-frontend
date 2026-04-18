@@ -88,6 +88,7 @@ src/
 └── App.js               → Routes configuration
 
 ## Screenshots
+
 ### Login page
 ![Login Page](screenshots/login.png)
 
