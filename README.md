@@ -94,7 +94,7 @@ src/
 ## Screenshots
 
 ### 🔐 Login page
-![Login Page](screenshots/login.png)
+![Login Page](screenshots/login.png\)
 
 ### 📝 Registration page
 ![Registration Page](screenshots/registeration.png)
