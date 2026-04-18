@@ -86,4 +86,25 @@ src/
 │   ├── RecipeCard.js    → Recipe card component
 │   └── Comment.js       → Comment component
 └── App.js               → Routes configuration
+
+## Screenshots
+### Login page
+![Login Page](screenshots/login.png)
+
+### Registeration page 
+![Regesteration Page](screenshots/registeration.png)
+
+### 🏠 Home Page
+![Home Page](screenshots/home.png)
+
+### 🍳 Recipe Detail
+![Recipe Detail](screenshots/recipe-detail-1.png)
+![Recipe Detail 2](screenshots/recipe-detail-2.png)
+![Recipe Detail 3](screenshots/recipe-detail-3.png)
+
+### ➕ Add Recipe
+![Add Recipe](screenshots/add-recipe.png)
+
+### 👤 Profile
+![Profile](screenshots/profile.png)
 ```
